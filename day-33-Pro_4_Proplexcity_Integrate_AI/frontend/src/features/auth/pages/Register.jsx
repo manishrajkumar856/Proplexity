@@ -1,28 +1,18 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link, Navigate, useNavigate } from 'react-router';
-import { useAuth } from '../hooks/useAuth';
+import { Link, Navigate } from 'react-router';
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { handleRegister } = useAuth();
-  const navigate = useNavigate();
 
   const user = useSelector(select => select.auth.user);
   const loading = useSelector(select => select.auth.loading);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Signup Data:", { username, email, password });
-    try {
-      console.log("HEllo");
-      await handleRegister({email, username, password});
-      navigate('/login');
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   if(!loading && user){

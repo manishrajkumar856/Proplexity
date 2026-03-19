@@ -19,7 +19,11 @@ const Register = () => {
     try {
       console.log("HEllo");
       await handleRegister({email, username, password});
-      navigate('/login');
+      
+      setEmail("");
+      setPassword("");
+      setUsername("");
+
     } catch (error) {
       console.log(error);
     }
