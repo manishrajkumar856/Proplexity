@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.no-scroll::-webkit-scrollbar{
+    scrollbar-width: none;
+}
